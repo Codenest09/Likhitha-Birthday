@@ -2,7 +2,7 @@
 
 // ===== Global Variables =====
 let currentPage = 0;
-const totalPages = 6;
+const totalPages = 7;
 let isTransitioning = false;
 
 // Memory Carousel Variables
@@ -264,32 +264,99 @@ document.addEventListener('DOMContentLoaded', () => {
     initMemoryCarousel();
     TypewriterEffect.init();
     initCountdown();
+    initAllButtons();  // Initialize all nav buttons
     initCake();
+    initWishes();
 });
+
+// ===== Initialize All Button Event Listeners =====
+function initAllButtons() {
+    console.log('=== initAllButtons called ===');
+    
+    // Attach listeners to ALL nav buttons (not just ones in cake section)
+    document.querySelectorAll('.nav-btn').forEach((btn, index) => {
+        // Clone to remove old listeners
+        const newBtn = btn.cloneNode(true);
+        btn.parentNode.replaceChild(newBtn, btn);
+        
+        // Add event listener
+        newBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            console.log('Nav button clicked:', index, 'classes:', this.className);
+            
+            if (this.classList.contains('next-btn') || this.classList.contains('glow-btn')) {
+                console.log('nextPage called from button click');
+                nextPage();
+            } else if (this.classList.contains('prev-btn')) {
+                console.log('prevPage called from button click');
+                prevPage();
+            }
+        });
+        
+        // Also handle pointer events
+        newBtn.addEventListener('pointerdown', function(e) {
+            e.preventDefault();
+        });
+        
+        // Touch support
+        newBtn.addEventListener('touchend', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            if (this.classList.contains('next-btn') || this.classList.contains('glow-btn')) {
+                nextPage();
+            } else if (this.classList.contains('prev-btn')) {
+                prevPage();
+            }
+        });
+    });
+    
+    console.log('Total nav buttons initialized:', document.querySelectorAll('.nav-btn').length);
+}
 
 // ===== Attach All Button Event Listeners =====
 // ===== Attach All Button Event Listeners =====
 function initCake() {
     console.log('initCake called');
 
-    // Debug: check if buttons exist
+    // Get the blow button
     const blowBtn = document.getElementById('blowCandlesBtn');
     console.log('Blow button found:', !!blowBtn);
 
-    // We rely on inline onclick attributes now for reliability
-    // But we add a catch-all for any buttons that might have been missed
-    document.querySelectorAll('.nav-btn').forEach(btn => {
-        // Only attach listener if no inline handler exists to avoid double-firing
-        if (!btn.hasAttribute('onclick')) {
-            btn.addEventListener('click', function (e) {
-                console.log('Generic nav button clicked (no onclick)');
-                if (this.classList.contains('next-btn') || this.classList.contains('glow-btn')) {
-                    nextPage();
-                } else if (this.classList.contains('prev-btn')) {
-                    prevPage();
-                }
-            });
-        }
+    // FIX FOR PC/LAPTOP: Direct click event with proper error handling
+    if (blowBtn) {
+        // Remove any previous listeners to avoid duplication
+        const newBtn = blowBtn.cloneNode(true);
+        blowBtn.parentNode.replaceChild(newBtn, blowBtn);
+        
+        // Add click listener to cloned button
+        newBtn.addEventListener('click', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            console.log('Blow button clicked via listener');
+            blowCandlesNew();
+        });
+        
+        // Also handle pointer down for immediate feedback
+        newBtn.addEventListener('pointerdown', function (e) {
+            e.preventDefault();
+            console.log('Blow button pointer down');
+        });
+    }
+
+    // Handle individual candle clicks
+    const flames = document.querySelectorAll('.flame');
+    flames.forEach((flame, index) => {
+        flame.addEventListener('click', function (e) {
+            e.stopPropagation();
+            console.log('Candle clicked:', index + 1);
+            blowSingleCandle(index);
+        });
+        
+        flame.addEventListener('pointerdown', function (e) {
+            e.preventDefault();
+        });
     });
 
     // Add touch support for blow button specifically (for mobile tap)
@@ -302,9 +369,38 @@ function initCake() {
     }
 }
 
-// New simplified blow candles function
+// Track candles state
 let candlesBlownNew = false;
+let candlesBlowCount = 0;
 
+// Blow individual candle with animation
+function blowSingleCandle(index) {
+    if (candlesBlownNew) return;
+    
+    const flames = document.querySelectorAll('.flame');
+    const flame = flames[index];
+    
+    if (flame && !flame.classList.contains('blown')) {
+        flame.classList.add('blown');
+        candlesBlowCount++;
+        
+        // Sound effect
+        try {
+            SoundManager.playPoof();
+        } catch (e) {
+            console.log('Sound error (ignored):', e);
+        }
+        
+        // If all candles blown, trigger success
+        if (candlesBlowCount === flames.length) {
+            setTimeout(() => {
+                triggerWishSuccess();
+            }, 400);
+        }
+    }
+}
+
+// New simplified blow candles function
 function blowCandlesNew() {
     console.log('blowCandlesNew called, candlesBlownNew:', candlesBlownNew);
     if (candlesBlownNew) return;
@@ -315,12 +411,23 @@ function blowCandlesNew() {
         console.log('Sound error (ignored):', e);
     }
 
+    // Blow all candles at once
+    const flames = document.querySelectorAll('.flame');
+    flames.forEach((flame, index) => {
+        setTimeout(() => {
+            if (!flame.classList.contains('blown')) {
+                flame.classList.add('blown');
+            }
+        }, index * 100);
+    });
+
     const candles = document.getElementById('cakeCandles');
     const blowBtn = document.getElementById('blowCandlesBtn');
-    const wishMessage = document.getElementById('wishSuccessMessage');
 
     if (candles) {
-        candles.classList.add('blown');
+        setTimeout(() => {
+            candles.classList.add('blown');
+        }, 300);
     }
 
     if (blowBtn) {
@@ -328,20 +435,75 @@ function blowCandlesNew() {
     }
 
     setTimeout(() => {
-        if (wishMessage) {
-            wishMessage.classList.add('show');
-        }
-
-        try {
-            createMegaConfetti();
-            SoundManager.playFanfare();
-        } catch (e) {
-            console.log('Celebration effect error (ignored):', e);
-        }
-    }, 500);
+        triggerWishSuccess();
+    }, 700);
 
     candlesBlownNew = true;
     console.log('Candles blown successfully!');
+}
+
+// Trigger wish success message and effects
+function triggerWishSuccess() {
+    const wishMessage = document.getElementById('wishSuccessMessage');
+
+    if (wishMessage) {
+        wishMessage.classList.add('show');
+    }
+
+    try {
+        createMegaConfetti();
+        SoundManager.playFanfare();
+    } catch (e) {
+        console.log('Celebration effect error (ignored):', e);
+    }
+}
+
+// ===== Initialize Wishes Page =====
+function initWishes() {
+    console.log('initWishes called');
+    
+    // Add click event listeners to all wish cards
+    const wishCards = document.querySelectorAll('.wish-card');
+    wishCards.forEach((card, index) => {
+        // Add hover sound effect on card flip
+        card.addEventListener('mouseenter', function() {
+            try {
+                SoundManager.playDing();
+            } catch (e) {
+                // Silently fail if sound doesn't work
+            }
+        });
+        
+        // Add click/tap support for mobile
+        card.addEventListener('click', function(e) {
+            e.stopPropagation();
+            const inner = this.querySelector('.card-inner');
+            if (inner) {
+                // Toggle the flip animation
+                if (inner.style.transform === 'rotateY(180deg)') {
+                    inner.style.transform = 'rotateY(0deg)';
+                } else {
+                    inner.style.transform = 'rotateY(180deg)';
+                }
+            }
+        });
+        
+        // Add touch support
+        card.addEventListener('touchend', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            const inner = this.querySelector('.card-inner');
+            if (inner) {
+                if (inner.style.transform === 'rotateY(180deg)') {
+                    inner.style.transform = 'rotateY(0deg)';
+                } else {
+                    inner.style.transform = 'rotateY(180deg)';
+                }
+            }
+        });
+    });
+    
+    console.log('Wishes page initialized with', wishCards.length, 'cards');
 }
 
 // ===== Birthday Age Timer =====
