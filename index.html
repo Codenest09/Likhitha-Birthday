@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>✨ Happy Birthday, Dear Sister! 💙🎀</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Quicksand:wght@300;400;500;600;700&family=Pacifico&family=Great+Vibes&family=Poppins:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Magic Particles Background -->
+    <canvas id="particleCanvas"></canvas>
+
+    <!-- Floating Elements -->
+    <div class="floating-elements">
+        <div class="float-item cloud" style="--delay: 0s; --x: 5%; --y: 10%;">☁️</div>
+        <div class="float-item cloud" style="--delay: 2s; --x: 85%; --y: 15%;">☁️</div>
+        <div class="float-item cloud" style="--delay: 4s; --x: 15%; --y: 70%;">☁️</div>
+        <div class="float-item star" style="--delay: 1s; --x: 90%; --y: 30%;">✨</div>
+        <div class="float-item star" style="--delay: 3s; --x: 8%; --y: 40%;">⭐</div>
+        <div class="float-item star" style="--delay: 5s; --x: 75%; --y: 75%;">✨</div>
+        <div class="float-item heart" style="--delay: 0.5s; --x: 92%; --y: 55%;">💕</div>
+        <div class="float-item heart" style="--delay: 2.5s; --x: 5%; --y: 85%;">💗</div>
+        <div class="float-item balloon" style="--delay: 1.5s; --x: 3%; --y: 25%;">🎈</div>
+        <div class="float-item balloon" style="--delay: 3.5s; --x: 95%; --y: 80%;">🎈</div>
+    </div>
+
+    <!-- Floating Cinnamoroll Decorations -->
+    <div class="cinna-decorations">
+        <!-- Corner Decorations -->
+        <img src="Cinamaroll.jpeg" alt="Cinnamoroll" class="cinna-float cinna-top-left">
+        <img src="avatar.jpeg" alt="Cinnamoroll" class="cinna-float cinna-top-right">
+        <img src="download.jpeg" alt="Cinnamoroll" class="cinna-float cinna-bottom-left">
+        <img src="download (1).jpeg" alt="Cinnamoroll" class="cinna-float cinna-bottom-right">
+        <!-- Side Decorations -->
+        <img src="download (2).jpeg" alt="Cinnamoroll" class="cinna-float cinna-side-left">
+        <img src="🩷🩵🩶.jpeg" alt="Cinnamoroll" class="cinna-float cinna-side-right">
+    </div>
+
+    <!-- Loading Screen - Magical Portal Experience -->
+    <div class="loader" id="loader">
+        <!-- Magical Background Stars -->
+        <div class="loader-stars">
+            <span style="--i:1">✨</span>
+            <span style="--i:2">⭐</span>
+            <span style="--i:3">💫</span>
+            <span style="--i:4">✨</span>
+            <span style="--i:5">🌟</span>
+            <span style="--i:6">⭐</span>
+            <span style="--i:7">✨</span>
+            <span style="--i:8">💫</span>
+        </div>
+
+        <!-- Floating Magic Particles -->
+        <div class="loader-magic-particles">
+            <span class="magic-dot" style="--delay: 0s; --x: 15%; --y: 20%;"></span>
+            <span class="magic-dot" style="--delay: 0.5s; --x: 80%; --y: 15%;"></span>
+            <span class="magic-dot" style="--delay: 1s; --x: 25%; --y: 75%;"></span>
+            <span class="magic-dot" style="--delay: 1.5s; --x: 85%; --y: 70%;"></span>
+            <span class="magic-dot" style="--delay: 2s; --x: 50%; --y: 10%;"></span>
+            <span class="magic-dot" style="--delay: 2.5s; --x: 10%; --y: 50%;"></span>
+        </div>
+
+        <div class="loader-content">
+            <!-- Magic Portal Rings -->
+            <div class="magic-portal">
+                <div class="portal-ring ring-outer"></div>
+                <div class="portal-ring ring-middle"></div>
+                <div class="portal-ring ring-inner"></div>
+                <div class="portal-glow"></div>
+
+                <!-- Orbiting Elements -->
+                <div class="orbit-container">
+                    <div class="orbit-item" style="--delay: 0s;">💕</div>
+                    <div class="orbit-item" style="--delay: 0.4s;">✨</div>
+                    <div class="orbit-item" style="--delay: 0.8s;">🌸</div>
+                    <div class="orbit-item" style="--delay: 1.2s;">💎</div>
+                    <div class="orbit-item" style="--delay: 1.6s;">⭐</div>
+                    <div class="orbit-item" style="--delay: 2s;">🎀</div>
+                </div>
+
+                <!-- Center Bunny with Magic Aura -->
+                <div class="loader-bunny-container">
+                    <div class="bunny-aura"></div>
+                    <div class="bunny-glow-ring"></div>
+                    <div class="loader-bunny">🐰</div>
+                    <div class="bunny-sparkle-burst">
+                        <span>✨</span><span>💕</span><span>✨</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Animated Title Text -->
+            <div class="loader-title-container">
+                <div class="loader-title">
+                    <span class="magic-letter" style="--i:1">P</span>
+                    <span class="magic-letter" style="--i:2">r</span>
+                    <span class="magic-letter" style="--i:3">e</span>
+                    <span class="magic-letter" style="--i:4">p</span>
+                    <span class="magic-letter" style="--i:5">a</span>
+                    <span class="magic-letter" style="--i:6">r</span>
+                    <span class="magic-letter" style="--i:7">i</span>
+                    <span class="magic-letter" style="--i:8">n</span>
+                    <span class="magic-letter" style="--i:9">g</span>
+                    <span class="magic-letter space" style="--i:10">&nbsp;</span>
+                    <span class="magic-letter" style="--i:11">M</span>
+                    <span class="magic-letter" style="--i:12">a</span>
+                    <span class="magic-letter" style="--i:13">g</span>
+                    <span class="magic-letter" style="--i:14">i</span>
+                    <span class="magic-letter" style="--i:15">c</span>
+                    <span class="magic-letter" style="--i:16">.</span>
+                    <span class="magic-letter" style="--i:17">.</span>
+                    <span class="magic-letter" style="--i:18">.</span>
+                </div>
+                <div class="loader-subtitle">✨ Something special awaits ✨</div>
+            </div>
+
+            <!-- Animated Progress Bar -->
+            <div class="magic-progress-container">
+                <div class="magic-progress-track">
+                    <div class="magic-progress-fill"></div>
+                    <div class="magic-progress-shimmer"></div>
+                </div>
+                <div class="progress-sparkles">
+                    <span>�</span><span>⭐</span><span>💫</span>
+                </div>
+            </div>
+
+            <!-- Floating Hearts Row -->
+            <div class="loader-hearts-row">
+                <span class="floating-heart" style="--delay: 0s;">💙</span>
+                <span class="floating-heart" style="--delay: 0.2s;">💕</span>
+                <span class="floating-heart" style="--delay: 0.4s;">💙</span>
+                <span class="floating-heart" style="--delay: 0.6s;">💕</span>
+                <span class="floating-heart" style="--delay: 0.8s;">💙</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Page Indicator -->
+    <div class="page-indicator" id="pageIndicator">
+        <span class="dot active" data-page="0"></span>
+        <span class="dot" data-page="1"></span>
+        <span class="dot" data-page="2"></span>
+        <span class="dot" data-page="3"></span>
+        <span class="dot" data-page="4"></span>
+        <span class="dot" data-page="5"></span>
+    </div>
+
+    <!-- Pages Container -->
+    <div class="pages-container" id="pagesContainer">
+
+        <!-- PAGE 1: Welcome -->
+        <section class="page active" id="page0" data-bg="hero">
+            <div class="page-content">
+                <div class="hero-stars">
+                    <span>⭐</span><span>✨</span><span>🌟</span><span>✨</span><span>⭐</span>
+                </div>
+
+                <div class="cinnamoroll-hero">
+                    <div class="cinna-glow"></div>
+                    <img src="Cinamaroll.jpeg" alt="Cinnamoroll" class="cinna-img" onclick="createLoveBurst(event)">
+                </div>
+
+                <h1 class="hero-title">
+                    <span class="title-line-1">Happy Birthday</span>
+                    <span class="title-line-2">Likhitha!</span>
+                </h1>
+
+                <div class="hero-emojis">
+                    <span>💙</span>
+                    <span>🎂</span>
+                    <span>💕</span>
+                </div>
+
+                <!-- Birthday Age Timer -->
+                <div class="countdown-container" id="countdownContainer" style="display: none;">
+                    <p class="countdown-label">✨ You are now ✨</p>
+                    <div class="countdown-boxes">
+                        <div class="countdown-box">
+                            <span class="countdown-number" id="countDays">00</span>
+                            <span class="countdown-unit">Years</span>
+                        </div>
+                        <div class="countdown-separator">:</div>
+                        <div class="countdown-box">
+                            <span class="countdown-number" id="countHours">00</span>
+                            <span class="countdown-unit">Months</span>
+                        </div>
+                        <div class="countdown-separator">:</div>
+                        <div class="countdown-box">
+                            <span class="countdown-number" id="countMinutes">00</span>
+                            <span class="countdown-unit">Days</span>
+                        </div>
+                        <div class="countdown-separator">:</div>
+                        <div class="countdown-box">
+                            <span class="countdown-number" id="countSeconds">00</span>
+                            <span class="countdown-unit">Hours</span>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="nav-btn next-btn glow-btn" onclick="nextPage()">
+                    <span class="btn-text">Open Your Surprise</span>
+                    <span class="btn-icon">💝</span>
+                </button>
+            </div>
+        </section>
+
+        <!-- PAGE 2: Special Message -->
+        <section class="page" id="page1" data-bg="message">
+            <div class="page-content">
+                <div class="section-icon">💌</div>
+                <h2 class="section-title heart-glow">💌 A Message From Heart 💌</h2>
+
+                <div class="message-box glass-box rainbow-border">
+                    <div class="box-ribbon">🎀</div>
+                    <p class="message-greeting gradient-text-pink">Happy Birthday, My Dear Cinnamoroll 🎂💖</p>
+                    <p class="message-text highlight-text">
+                        You are My strength, My smile, and My best friend 🌸
+                    </p>
+                    <p class="message-text glow-line">
+                        May your life be filled with love, happiness, and success always ✨
+                    </p>
+                    <p class="message-text highlight-text">
+                        Thank you for always standing by me like my strength. 💪
+                    </p>
+                    <p class="message-text glow-line">
+                        I'm so lucky to have you as My Dear Companion 🌸💌
+                    </p>
+                    <p class="message-sign gradient-text-blue">
+                        To the person who knows all my secrets and still likes me anyway 💕💝🌸
+                    </p>
+                </div>
+
+                <div class="nav-buttons">
+                    <button class="nav-btn prev-btn" onclick="prevPage()">
+                        <span class="btn-icon">←</span>
+                        <span class="btn-text">Back</span>
+                    </button>
+                    <button class="nav-btn next-btn glow-btn" onclick="nextPage()">
+                        <span class="btn-text">See Wishes</span>
+                        <span class="btn-icon">🌟</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- PAGE 3: Our Memories -->
+        <section class="page" id="page2" data-bg="memories">
+            <div class="page-content memories-page">
+                <div class="section-icon">📸</div>
+                <h2 class="section-title">Our Memories</h2>
+
+                <!-- Photo Carousel -->
+                <div class="memory-carousel" id="memoryCarousel">
+                    <!-- Carousel Navigation Arrows -->
+                    <button class="carousel-arrow arrow-left" onclick="prevMemory()">
+                        <span>❮</span>
+                    </button>
+
+                    <div class="carousel-track-container">
+                        <div class="carousel-track" id="carouselTrack">
+                            <!-- Memory 1 - First Photo -->
+                            <div class="memory-slide active">
+                                <div class="polaroid-frame">
+                                    <div class="photo-slot">
+                                        <img src="WhatsApp Image 2026-02-03 at 1.51.50 AM.jpeg" alt="Memory">
+                                    </div>
+                                    <div class="memory-caption">
+                                        <span class="caption-emoji">🎀</span>
+                                        <p class="caption-text">Gorgeous!</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Memory 2 -->
+                            <div class="memory-slide">
+                                <div class="polaroid-frame">
+                                    <div class="photo-slot">
+                                        <img src="WhatsApp Image 2026-02-03 at 1.20.51 AM.jpeg" alt="Memory">
+                                    </div>
+                                    <div class="memory-caption">
+                                        <span class="caption-emoji">💕</span>
+                                        <p class="caption-text">So Cute!</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Memory 3 -->
+                            <div class="memory-slide">
+                                <div class="polaroid-frame">
+                                    <div class="photo-slot">
+                                        <img src="WhatsApp Image 2026-02-03 at 1.28.52 AM.jpeg" alt="Memory">
+                                    </div>
+                                    <div class="memory-caption">
+                                        <span class="caption-emoji">🌸</span>
+                                        <p class="caption-text">Beautiful!</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Memory 4 -->
+                            <div class="memory-slide">
+                                <div class="polaroid-frame">
+                                    <div class="photo-slot">
+                                        <img src="WhatsApp Image 2026-02-03 at 1.32.25 AM.jpeg" alt="Memory">
+                                    </div>
+                                    <div class="memory-caption">
+                                        <span class="caption-emoji">✨</span>
+                                        <p class="caption-text">Precious!</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Memory 5 -->
+                            <div class="memory-slide">
+                                <div class="polaroid-frame">
+                                    <div class="photo-slot">
+                                        <img src="WhatsApp Image 2026-02-03 at 1.32.50 AM.jpeg" alt="Memory">
+                                    </div>
+                                    <div class="memory-caption">
+                                        <span class="caption-emoji">🌸</span>
+                                        <p class="caption-text">Sweet Smile!</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Memory 6 - Baby Picture -->
+                            <div class="memory-slide">
+                                <div class="polaroid-frame">
+                                    <div class="photo-slot">
+                                        <img src="WhatsApp Image 2026-02-03 at 1.18.49 AM.jpeg" alt="Baby Memory">
+                                    </div>
+                                    <div class="memory-caption">
+                                        <span class="caption-emoji">👶</span>
+                                        <p class="caption-text">Baby Days!</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Memory 7 -->
+                            <div class="memory-slide">
+                                <div class="polaroid-frame">
+                                    <div class="photo-slot">
+                                        <img src="WhatsApp Image 2026-02-03 at 1.58.39 AM.jpeg" alt="Memory">
+                                    </div>
+                                    <div class="memory-caption">
+                                        <span class="caption-emoji">🌸</span>
+                                        <p class="caption-text">Sister Love!</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Memory 8 -->
+                            <div class="memory-slide">
+                                <div class="polaroid-frame">
+                                    <div class="photo-slot">
+                                        <img src="WhatsApp Image 2026-02-03 at 2.01.10 AM.jpeg" alt="Memory">
+                                    </div>
+                                    <div class="memory-caption">
+                                        <span class="caption-emoji">🌸</span>
+                                        <p class="caption-text">Best Moments!</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Memory 9 - Birthday Message Card -->
+                            <div class="memory-slide">
+                                <div class="polaroid-frame special-frame">
+                                    <div class="photo-slot birthday-slot">
+                                        <div class="birthday-message-card">
+                                            <span class="card-decoration top">✨🎀✨</span>
+                                            <span class="card-bunny">🐰</span>
+                                            <p class="card-title">Happy Birthday!</p>
+                                            <p class="card-text">To the sweetest sister!</p>
+                                            <span class="card-decoration bottom">💕🌸💕</span>
+                                        </div>
+                                    </div>
+                                    <div class="memory-caption">
+                                        <span class="caption-emoji">🎂</span>
+                                        <p class="caption-text">With Love Forever!</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="carousel-arrow arrow-right" onclick="nextMemory()">
+                        <span>❯</span>
+                    </button>
+                </div>
+
+                <!-- Carousel Dots -->
+                <div class="carousel-dots" id="carouselDots">
+                    <span class="carousel-dot active" data-slide="0"></span>
+                    <span class="carousel-dot" data-slide="1"></span>
+                    <span class="carousel-dot" data-slide="2"></span>
+                    <span class="carousel-dot" data-slide="3"></span>
+                    <span class="carousel-dot" data-slide="4"></span>
+                    <span class="carousel-dot" data-slide="5"></span>
+                    <span class="carousel-dot" data-slide="6"></span>
+                    <span class="carousel-dot" data-slide="7"></span>
+                    <span class="carousel-dot" data-slide="8"></span>
+                </div>
+
+                <p class="carousel-hint">✨ Swipe or use arrows to view memories ✨</p>
+
+                <div class="nav-buttons">
+                    <button class="nav-btn prev-btn" onclick="prevPage()">
+                        <span class="btn-icon">←</span>
+                        <span class="btn-text">Back</span>
+                    </button>
+                    <button class="nav-btn next-btn glow-btn" onclick="nextPage()">
+                        <span class="btn-text">Make a Wish</span>
+                        <span class="btn-icon">🎂</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- PAGE 4: Birthday Cake - Make a Wish -->
+        <section class="page" id="page3" data-bg="cake">
+            <div class="page-content">
+                <div class="section-icon">🎂</div>
+                <h2 class="section-title">Make a Wish!</h2>
+
+                <!-- Simple Cake Design with Button for Reliable Clicking -->
+                <div class="wish-cake-container">
+                    <div class="cake-emoji-display" id="cakeDisplay">
+                        <div class="cake-candles" id="cakeCandles">
+                            <span class="candle-flame">🕯️</span>
+                            <span class="candle-flame">🕯️</span>
+                            <span class="candle-flame">🕯️</span>
+                        </div>
+                        <div class="cake-body">🎂</div>
+                    </div>
+
+                    <button type="button" class="blow-candles-btn" id="blowCandlesBtn" onclick="blowCandlesNew()">
+                        <span class="blow-icon">💨</span>
+                        <span class="blow-text">Tap to Blow Candles!</span>
+                    </button>
+                </div>
+
+                <!-- Hidden message shown after blowing -->
+                <div class="wish-success-message" id="wishSuccessMessage">
+                    <div class="wish-stars">✨🌟💫</div>
+                    <p class="wish-text">Your wish will come true!</p>
+                    <div class="wish-hearts">💕💙💕</div>
+                </div>
+
+                <div class="nav-buttons">
+                    <button type="button" class="nav-btn prev-btn" id="prevBtn3" onclick="prevPage()">
+                        <span class="btn-icon">←</span>
+                        <span class="btn-text">Back</span>
+                    </button>
+                    <button type="button" class="nav-btn next-btn glow-btn" id="nextBtn3" onclick="nextPage()">
+                        <span class="btn-text">Open Gift</span>
+                        <span class="btn-icon">🎁</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- PAGE 5: Treasure Hunt Game -->
+        <section class="page" id="page4" data-bg="treasure">
+            <div class="page-content treasure-hunt-page">
+                <!-- Floating Treasure Elements -->
+                <div class="treasure-sparkles">
+                    <span class="treasure-gem" style="--delay: 0s; --x: 8%; --y: 15%;">💎</span>
+                    <span class="treasure-gem" style="--delay: 0.5s; --x: 92%; --y: 20%;">✨</span>
+                    <span class="treasure-gem" style="--delay: 1s; --x: 15%; --y: 75%;">🔮</span>
+                    <span class="treasure-gem" style="--delay: 1.5s; --x: 88%; --y: 80%;">💫</span>
+                    <span class="treasure-gem" style="--delay: 2s; --x: 50%; --y: 5%;">⭐</span>
+                    <span class="treasure-gem" style="--delay: 2.5s; --x: 5%; --y: 50%;">🌟</span>
+                </div>
+
+                <!-- Treasure Hunt Header -->
+                <div class="treasure-header">
+                    <div class="treasure-icon-row">
+                        <span>🗺️</span><span>✨</span><span>🎁</span><span>✨</span><span>🗺️</span>
+                    </div>
+                    <h2 class="treasure-title">Treasure Hunt!</h2>
+                    <p class="treasure-subtitle">Solve the riddles to find your surprise! 🔐</p>
+                </div>
+
+                <!-- Progress Tracker -->
+                <div class="treasure-progress">
+                    <div class="progress-step completed" id="step0">
+                        <span class="step-icon">🏁</span>
+                        <span class="step-line"></span>
+                    </div>
+                    <div class="progress-step" id="step1">
+                        <span class="step-icon">🔒</span>
+                        <span class="step-line"></span>
+                    </div>
+                    <div class="progress-step" id="step2">
+                        <span class="step-icon">🔒</span>
+                        <span class="step-line"></span>
+                    </div>
+                    <div class="progress-step" id="step3">
+                        <span class="step-icon">🎁</span>
+                    </div>
+                </div>
+
+                <!-- Question Cards Container -->
+                <div class="treasure-cards-container">
+                    <!-- Question 1: Fridge -->
+                    <div class="treasure-card active" id="question1">
+                        <div class="card-glow"></div>
+                        <div class="card-number">1</div>
+                        <div class="riddle-emoji">🍎</div>
+                        <div class="riddle-text">
+                            <p class="riddle-line">"An artist's gallery in the kitchen,</p>
+                            <p class="riddle-line">where fruits pose like models,</p>
+                            <p class="riddle-line">and time is frozen in art."</p>
+                            <p class="riddle-question">Who am I? 🤔</p>
+                        </div>
+                        <div class="pin-container">
+                            <p class="pin-label">Enter the 4-digit PIN from the gift:</p>
+                            <div class="pin-inputs" data-question="1">
+                                <input type="tel" maxlength="1" class="pin-digit" data-index="0" autocomplete="off">
+                                <input type="tel" maxlength="1" class="pin-digit" data-index="1" autocomplete="off">
+                                <input type="tel" maxlength="1" class="pin-digit" data-index="2" autocomplete="off">
+                                <input type="tel" maxlength="1" class="pin-digit" data-index="3" autocomplete="off">
+                            </div>
+                            <button class="unlock-btn" onclick="checkPin(1)">
+                                <span>🔓</span> Unlock
+                            </button>
+                            <p class="pin-error" id="error1">❌ Wrong PIN! Try again</p>
+                        </div>
+                    </div>
+
+                    <!-- Question 2: Photo -->
+                    <div class="treasure-card" id="question2">
+                        <div class="card-glow"></div>
+                        <div class="card-number">2</div>
+                        <div class="riddle-emoji">📸</div>
+                        <div class="riddle-text">
+                            <p class="riddle-line">"I show every detail like a painting,</p>
+                            <p class="riddle-line">but I don't use colors or brush."</p>
+                            <p class="riddle-question">What am I? 🤔</p>
+                        </div>
+                        <div class="pin-container">
+                            <p class="pin-label">Enter the 4-digit PIN from the gift:</p>
+                            <div class="pin-inputs" data-question="2">
+                                <input type="tel" maxlength="1" class="pin-digit" data-index="0" autocomplete="off">
+                                <input type="tel" maxlength="1" class="pin-digit" data-index="1" autocomplete="off">
+                                <input type="tel" maxlength="1" class="pin-digit" data-index="2" autocomplete="off">
+                                <input type="tel" maxlength="1" class="pin-digit" data-index="3" autocomplete="off">
+                            </div>
+                            <button class="unlock-btn" onclick="checkPin(2)">
+                                <span>🔓</span> Unlock
+                            </button>
+                            <p class="pin-error" id="error2">❌ Wrong PIN! Try again</p>
+                        </div>
+                    </div>
+
+                    <!-- Question 3: TV -->
+                    <div class="treasure-card" id="question3">
+                        <div class="card-glow"></div>
+                        <div class="card-number">3</div>
+                        <div class="riddle-emoji">📺</div>
+                        <div class="riddle-text">
+                            <p class="riddle-line">"I display stories, colors, and scenes."</p>
+                            <p class="riddle-question">What am I? 🤔</p>
+                        </div>
+                        <div class="pin-container">
+                            <p class="pin-label">Enter the 4-digit PIN from the gift:</p>
+                            <div class="pin-inputs" data-question="3">
+                                <input type="tel" maxlength="1" class="pin-digit" data-index="0" autocomplete="off">
+                                <input type="tel" maxlength="1" class="pin-digit" data-index="1" autocomplete="off">
+                                <input type="tel" maxlength="1" class="pin-digit" data-index="2" autocomplete="off">
+                                <input type="tel" maxlength="1" class="pin-digit" data-index="3" autocomplete="off">
+                            </div>
+                            <button class="unlock-btn" onclick="checkPin(3)">
+                                <span>🔓</span> Unlock
+                            </button>
+                            <p class="pin-error" id="error3">❌ Wrong PIN! Try again</p>
+                        </div>
+                    </div>
+
+                    <!-- Final Message Reveal -->
+                    <div class="treasure-card final-card" id="finalMessage">
+                        <div class="card-glow golden"></div>
+                        <div class="celebration-burst">
+                            <span>🎉</span><span>✨</span><span>🎊</span><span>💖</span><span>🎉</span>
+                        </div>
+                        <div class="riddle-emoji trophy">🏆</div>
+                        <h3 class="final-title">You Did It! 🎉</h3>
+                        <div class="final-message-box">
+                            <p class="final-message-text">
+                                likhi eni questions ki answers kanipetav kani nii gift naa dhagare vundi
+                                hehehehehehe..............😁😁😁😁😁😁😅😅😅😅
+                            </p>
+                        </div>
+                        <div class="final-hearts">
+                            <span>💕</span><span>💖</span><span>💗</span><span>💖</span><span>💕</span>
+                        </div>
+                        <button class="nav-btn next-btn glow-btn final-next-btn" onclick="nextPage()">
+                            <span class="btn-text">Continue</span>
+                            <span class="btn-icon">🌟</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="nav-buttons treasure-nav">
+                    <button class="nav-btn prev-btn" onclick="prevPage()">
+                        <span class="btn-icon">←</span>
+                        <span class="btn-text">Back</span>
+                    </button>
+                    <button class="nav-btn next-btn glow-btn" onclick="nextPage()" id="treasureNextBtn">
+                        <span class="btn-text">Final Page</span>
+                        <span class="btn-icon">🌟</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- PAGE 6: Finale -->
+        <section class="page" id="page5" data-bg="finale">
+            <div class="page-content">
+                <div class="finale-decoration">
+                    <span>🎀</span>
+                    <span>✨</span>
+                    <span>🐰</span>
+                    <span>✨</span>
+                    <span>🎀</span>
+                </div>
+
+                <div class="finale-bunny">
+                    <img src="cinnamoroll-angel.jpg" alt="Cinnamoroll Angel" class="cinna-angel-img">
+                </div>
+
+                <h2 class="finale-title">Happy Birthday!</h2>
+                <p class="finale-subtitle">Wishing you the most magical year ahead! 🌟</p>
+
+                <div class="finale-hearts">
+                    <span>💙</span>
+                    <span>💕</span>
+                    <span>💖</span>
+                    <span>💕</span>
+                    <span>💙</span>
+                </div>
+
+                <div class="plushie-row">
+                    <span class="plushie">🧸</span>
+                    <span class="plushie">🐰</span>
+                    <span class="plushie">🧸</span>
+                </div>
+
+                <p class="finale-footer">Made with infinite 💙 for 4ou</p>
+
+                <button class="nav-btn restart-btn glow-btn" onclick="restartJourney()">
+                    <span class="btn-icon">🔄</span>
+                    <span class="btn-text">Start Again</span>
+                </button>
+
+                <button class="nav-btn prev-btn" onclick="prevPage()" style="margin-top: 15px;">
+                    <span class="btn-icon">←</span>
+                    <span class="btn-text">Go Back</span>
+                </button>
+            </div>
+        </section>
+    </div>
+
+    <!-- Music Button -->
+    <button class="music-btn" id="musicBtn" onclick="toggleMusic()">
+        <span class="music-icon">🎵</span>
+    </button>
+
+    <audio id="bgMusic" loop>
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3" type="audio/mpeg">
+    </audio>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
