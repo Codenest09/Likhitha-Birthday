@@ -2,7 +2,7 @@
 
 // ===== Global Variables =====
 let currentPage = 0;
-const totalPages = 7;
+const totalPages = 6;
 let isTransitioning = false;
 
 // Memory Carousel Variables
@@ -266,7 +266,6 @@ document.addEventListener('DOMContentLoaded', () => {
     initCountdown();
     initAllButtons();  // Initialize all nav buttons
     initCake();
-    initWishes();
 });
 
 // ===== Initialize All Button Event Listeners =====
@@ -459,53 +458,6 @@ function triggerWishSuccess() {
 }
 
 // ===== Initialize Wishes Page =====
-function initWishes() {
-    console.log('initWishes called');
-    
-    // Add click event listeners to all wish cards
-    const wishCards = document.querySelectorAll('.wish-card');
-    wishCards.forEach((card, index) => {
-        // Add hover sound effect on card flip
-        card.addEventListener('mouseenter', function() {
-            try {
-                SoundManager.playDing();
-            } catch (e) {
-                // Silently fail if sound doesn't work
-            }
-        });
-        
-        // Add click/tap support for mobile
-        card.addEventListener('click', function(e) {
-            e.stopPropagation();
-            const inner = this.querySelector('.card-inner');
-            if (inner) {
-                // Toggle the flip animation
-                if (inner.style.transform === 'rotateY(180deg)') {
-                    inner.style.transform = 'rotateY(0deg)';
-                } else {
-                    inner.style.transform = 'rotateY(180deg)';
-                }
-            }
-        });
-        
-        // Add touch support
-        card.addEventListener('touchend', function(e) {
-            e.preventDefault();
-            e.stopPropagation();
-            const inner = this.querySelector('.card-inner');
-            if (inner) {
-                if (inner.style.transform === 'rotateY(180deg)') {
-                    inner.style.transform = 'rotateY(0deg)';
-                } else {
-                    inner.style.transform = 'rotateY(180deg)';
-                }
-            }
-        });
-    });
-    
-    console.log('Wishes page initialized with', wishCards.length, 'cards');
-}
-
 // ===== Birthday Age Timer =====
 function initCountdown() {
     // Likhitha's birth date: February 10th, 2011 at 6:50 AM
