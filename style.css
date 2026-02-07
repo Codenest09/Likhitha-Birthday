@@ -1648,6 +1648,7 @@ body {
     font-size: 1.8rem;
     color: var(--pastel-pink);
     margin-bottom: 20px;
+    min-height: 2.2em;
 }
 
 .message-text {
@@ -1655,6 +1656,7 @@ body {
     line-height: 1.8;
     color: #6a6a8a;
     margin-bottom: 15px;
+    min-height: 1.8em;
 }
 
 .message-sign {
@@ -1663,6 +1665,7 @@ body {
     color: var(--soft-purple);
     text-align: right;
     margin-top: 25px;
+    min-height: 2.4em;
 }
 
 /* ===== Eye-Catching Message Enhancements ===== */
