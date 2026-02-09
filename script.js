@@ -189,44 +189,21 @@ document.addEventListener('DOMContentLoaded', () => {
 // ===== Background Music Manager =====
 function initMusic() {
     const music = document.getElementById('bgMusic');
-    const toggleBtn = document.getElementById('musicToggle');
-    const icon = toggleBtn.querySelector('.music-icon');
-    let isPlaying = false;
+    const startBtn = document.getElementById('startBtn');
 
     // Set initial volume
     music.volume = 0.5;
 
-    // Toggle function
-    toggleBtn.addEventListener('click', () => {
-        if (isPlaying) {
-            music.pause();
-            icon.textContent = '🔇';
-            toggleBtn.classList.remove('music-playing');
-        } else {
+    // Play music when "Open Your Surprise" is clicked
+    if (startBtn) {
+        startBtn.addEventListener('click', () => {
             music.play().then(() => {
-                icon.textContent = '🎵';
-                toggleBtn.classList.add('music-playing');
-            }).catch(err => console.log('Music play failed:', err));
-        }
-        isPlaying = !isPlaying;
-    });
-
-    // Auto-play attempt on first interaction with any part of the page
-    const startAudio = () => {
-        music.play().then(() => {
-            isPlaying = true;
-            icon.textContent = '🎵';
-            toggleBtn.classList.add('music-playing');
-            // Remove listeners once started
-            document.removeEventListener('click', startAudio);
-            document.removeEventListener('touchstart', startAudio);
-        }).catch(err => {
-            console.log('Auto-play prevented (waiting for interaction)');
+                console.log('Music started successfully');
+            }).catch(err => {
+                console.log('Music play failed:', err);
+            });
         });
-    };
-
-    document.addEventListener('click', startAudio);
-    document.addEventListener('touchstart', startAudio);
+    }
 }
 
 // ===== Initialize All Button Event Listeners =====

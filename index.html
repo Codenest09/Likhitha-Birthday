@@ -205,7 +205,7 @@
                     </div>
                 </div>
 
-                <button class="nav-btn next-btn glow-btn" onclick="nextPage()">
+                <button class="nav-btn next-btn glow-btn" id="startBtn" onclick="nextPage()">
                     <span class="btn-text">Open Your Surprise</span>
                     <span class="btn-icon">💝</span>
                 </button>
@@ -771,21 +771,13 @@
         </section>
     </div>
 
-    <!-- Music Button -->
-    <button class="music-btn" id="musicBtn" onclick="toggleMusic()">
-        <!-- Background Music -->
-        <audio id="bgMusic" loop>
-            <source src="https://assets.mixkit.co/music/preview/mixkit-love-story-piano-solo-29.mp3" type="audio/mpeg">
-            Your browser does not support the audio element.
-        </audio>
+    <!-- Background Music -->
+    <audio id="bgMusic" loop>
+        <source src="https://assets.mixkit.co/music/preview/mixkit-love-story-piano-solo-29.mp3" type="audio/mpeg">
+    </audio>
 
-        <!-- Music Toggle Button -->
-        <button id="musicToggle" class="music-toggle" aria-label="Toggle Music">
-            <span class="music-icon">🔇</span>
-        </button>
-
-        <!-- Scripts -->
-        <script src="script.js"></script>
+    <!-- Scripts -->
+    <script src="script.js"></script>
 </body>
 
 </html>
