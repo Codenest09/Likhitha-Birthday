@@ -189,20 +189,35 @@ document.addEventListener('DOMContentLoaded', () => {
 // ===== Background Music Manager =====
 function initMusic() {
     const music = document.getElementById('bgMusic');
+    const startBtn = document.getElementById('startBtn');
 
     // Set initial volume
     music.volume = 0.5;
 
-    // Attach to document to catch the event even if button is cloned
-    document.addEventListener('click', function (e) {
-        if (e.target.closest('#startBtn')) {
+    // Helper to start music
+    const playMusic = () => {
+        if (music.paused) {
             music.play().then(() => {
                 console.log('Music started successfully');
+                // Remove global listeners once playing
+                document.removeEventListener('click', playMusic);
+                document.removeEventListener('touchstart', playMusic);
             }).catch(err => {
-                console.log('Music play failed:', err);
+                console.log('Music play failed (interaction needed):', err);
             });
         }
-    });
+    };
+
+    // 1. Primary Trigger: "Open Your Surprise" Button
+    // We attach directly because initAllButtons uses stopPropagation()
+    if (startBtn) {
+        startBtn.addEventListener('click', playMusic);
+    }
+
+    // 2. Global Fallback: Unlock audio on ANY first interaction
+    // This ensures music plays if the user clicks somewhere else first or if the specific button fails
+    document.addEventListener('click', playMusic);
+    document.addEventListener('touchstart', playMusic);
 }
 
 // ===== Initialize All Button Event Listeners =====
