@@ -7020,3 +7020,12 @@ body {
     background-clip: text;
     color: transparent;
 }
+
+/* Fix for button clickability */
+.nav-btn {
+    position: relative;
+    z-index: 1001; /* Ensure above everything */
+    cursor: pointer;
+    pointer-events: auto !important;
+}
+

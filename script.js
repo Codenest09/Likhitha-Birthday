@@ -197,7 +197,10 @@ function initAllButtons() {
 
         // Add event listener
         newBtn.addEventListener('click', function (e) {
-            e.preventDefault();
+            // Only prevent default if it's a link, but for buttons we might need it?
+            // Actually, for a button element, preventDefault stops form submission or focus. 
+            // But if the click isn't firing, maybe something else is wrong.
+            // Let's TRY removing preventDefault for click to be safe, or just keep stopPropagation.
             e.stopPropagation();
             console.log('Nav button clicked:', index, 'classes:', this.className);
 
@@ -210,9 +213,12 @@ function initAllButtons() {
             }
         });
 
-        // Also handle pointer events
+        // Also handle pointer events - BE CAREFUL here. 
+        // pointerdown might fire before click. If we preventDefault here, click might not fire?
+        // Let's REMOVE preventDefault from pointerdown.
         newBtn.addEventListener('pointerdown', function (e) {
-            e.preventDefault();
+            // e.preventDefault(); // Removed this as it might block 'click' on some devices
+            console.log('Pointer down');
         });
 
         // Touch support
@@ -248,7 +254,7 @@ function initCake() {
 
         // Add click listener to cloned button
         newBtn.addEventListener('click', function (e) {
-            e.preventDefault();
+            // e.preventDefault(); // Removed for laptop compatibility
             e.stopPropagation();
             console.log('Blow button clicked via listener');
             blowCandlesNew();
