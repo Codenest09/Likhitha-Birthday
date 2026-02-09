@@ -187,37 +187,32 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // ===== Background Music Manager =====
-function initMusic() {
+window.playBackgroundMusic = function () {
     const music = document.getElementById('bgMusic');
+    if (music && music.paused) {
+        music.volume = 1.0; // Ensure full volume
+        music.play().then(() => {
+            console.log('Music started successfully');
+            // Remove global listeners once playing
+            document.removeEventListener('click', window.playBackgroundMusic);
+            document.removeEventListener('touchstart', window.playBackgroundMusic);
+        }).catch(err => {
+            console.log('Music play failed (interaction needed):', err);
+        });
+    }
+};
+
+function initMusic() {
     const startBtn = document.getElementById('startBtn');
 
-    // Set initial volume
-    music.volume = 0.5;
-
-    // Helper to start music
-    const playMusic = () => {
-        if (music.paused) {
-            music.play().then(() => {
-                console.log('Music started successfully');
-                // Remove global listeners once playing
-                document.removeEventListener('click', playMusic);
-                document.removeEventListener('touchstart', playMusic);
-            }).catch(err => {
-                console.log('Music play failed (interaction needed):', err);
-            });
-        }
-    };
-
-    // 1. Primary Trigger: "Open Your Surprise" Button
-    // We attach directly because initAllButtons uses stopPropagation()
+    // 1. Primary Trigger: Direct Attachment
     if (startBtn) {
-        startBtn.addEventListener('click', playMusic);
+        startBtn.addEventListener('click', window.playBackgroundMusic);
     }
 
-    // 2. Global Fallback: Unlock audio on ANY first interaction
-    // This ensures music plays if the user clicks somewhere else first or if the specific button fails
-    document.addEventListener('click', playMusic);
-    document.addEventListener('touchstart', playMusic);
+    // 2. Global Fallback
+    document.addEventListener('click', window.playBackgroundMusic);
+    document.addEventListener('touchstart', window.playBackgroundMusic);
 }
 
 // ===== Initialize All Button Event Listeners =====
@@ -232,12 +227,13 @@ function initAllButtons() {
 
         // Add event listener
         newBtn.addEventListener('click', function (e) {
-            // Only prevent default if it's a link, but for buttons we might need it?
-            // Actually, for a button element, preventDefault stops form submission or focus. 
-            // But if the click isn't firing, maybe something else is wrong.
-            // Let's TRY removing preventDefault for click to be safe, or just keep stopPropagation.
             e.stopPropagation();
             console.log('Nav button clicked:', index, 'classes:', this.className);
+
+            // FORCE MUSIC PLAY for Start Button
+            if (this.id === 'startBtn') {
+                window.playBackgroundMusic();
+            }
 
             if (this.classList.contains('next-btn') || this.classList.contains('glow-btn')) {
                 console.log('nextPage called from button click');
