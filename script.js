@@ -169,90 +169,7 @@ const SoundManager = {
     }
 };
 
-// ===== Typewriter Effect =====
-const TypewriterEffect = {
-    hasPlayed: false,
-
-    init() {
-        // Watch for message page becoming active
-        const observer = new MutationObserver((mutations) => {
-            mutations.forEach((mutation) => {
-                if (mutation.target.id === 'page1' && mutation.target.classList.contains('active')) {
-                    this.play();
-                }
-            });
-        });
-
-        const messagePage = document.getElementById('page1');
-        if (messagePage) {
-            observer.observe(messagePage, { attributes: true, attributeFilter: ['class'] });
-        }
-    },
-
-    play() {
-        if (this.hasPlayed) return;
-        this.hasPlayed = true;
-
-        const messageTexts = document.querySelectorAll('#page1 .message-text');
-        const greeting = document.querySelector('#page1 .message-greeting');
-        const sign = document.querySelector('#page1 .message-sign');
-
-        // Hide all text initially
-        const allElements = [greeting, ...messageTexts, sign].filter(Boolean);
-        allElements.forEach(el => {
-            el.dataset.fullText = el.textContent;
-            el.textContent = '';
-            el.style.visibility = 'visible';
-        });
-
-        // Create cursor
-        const cursor = document.createElement('span');
-        cursor.className = 'typewriter-cursor';
-        cursor.textContent = '|';
-
-        let currentElIndex = 0;
-        let currentCharIndex = 0;
-
-        const typeNext = () => {
-            if (currentElIndex >= allElements.length) {
-                // Remove cursor when done
-                setTimeout(() => cursor.remove(), 1000);
-                return;
-            }
-
-            const currentEl = allElements[currentElIndex];
-            const fullText = currentEl.dataset.fullText;
-
-            if (currentCharIndex === 0) {
-                currentEl.appendChild(cursor);
-            }
-
-            if (currentCharIndex < fullText.length) {
-                currentEl.textContent = fullText.substring(0, currentCharIndex + 1);
-                currentEl.appendChild(cursor);
-                currentCharIndex++;
-
-                // Variable speed for natural feel
-                const char = fullText[currentCharIndex - 1];
-                let delay = 30;
-                if (char === '.' || char === '!' || char === '?') delay = 300;
-                else if (char === ',') delay = 150;
-                else if (char === ' ') delay = 50;
-
-                setTimeout(typeNext, delay);
-            } else {
-                // Move to next element
-                currentEl.textContent = fullText;
-                currentElIndex++;
-                currentCharIndex = 0;
-                setTimeout(typeNext, 400);
-            }
-        };
-
-        // Start typing after a short delay
-        setTimeout(typeNext, 500);
-    }
-};
+// Typewriter Effect removed
 
 // ===== Initialize =====
 document.addEventListener('DOMContentLoaded', () => {
@@ -262,7 +179,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initKeyboardNav();
     initTouchSwipe();
     initMemoryCarousel();
-    TypewriterEffect.init();
+    // TypewriterEffect removed
     initCountdown();
     initAllButtons();  // Initialize all nav buttons
     initCake();
@@ -271,19 +188,19 @@ document.addEventListener('DOMContentLoaded', () => {
 // ===== Initialize All Button Event Listeners =====
 function initAllButtons() {
     console.log('=== initAllButtons called ===');
-    
+
     // Attach listeners to ALL nav buttons (not just ones in cake section)
     document.querySelectorAll('.nav-btn').forEach((btn, index) => {
         // Clone to remove old listeners
         const newBtn = btn.cloneNode(true);
         btn.parentNode.replaceChild(newBtn, btn);
-        
+
         // Add event listener
-        newBtn.addEventListener('click', function(e) {
+        newBtn.addEventListener('click', function (e) {
             e.preventDefault();
             e.stopPropagation();
             console.log('Nav button clicked:', index, 'classes:', this.className);
-            
+
             if (this.classList.contains('next-btn') || this.classList.contains('glow-btn')) {
                 console.log('nextPage called from button click');
                 nextPage();
@@ -292,17 +209,17 @@ function initAllButtons() {
                 prevPage();
             }
         });
-        
+
         // Also handle pointer events
-        newBtn.addEventListener('pointerdown', function(e) {
+        newBtn.addEventListener('pointerdown', function (e) {
             e.preventDefault();
         });
-        
+
         // Touch support
-        newBtn.addEventListener('touchend', function(e) {
+        newBtn.addEventListener('touchend', function (e) {
             e.preventDefault();
             e.stopPropagation();
-            
+
             if (this.classList.contains('next-btn') || this.classList.contains('glow-btn')) {
                 nextPage();
             } else if (this.classList.contains('prev-btn')) {
@@ -310,7 +227,7 @@ function initAllButtons() {
             }
         });
     });
-    
+
     console.log('Total nav buttons initialized:', document.querySelectorAll('.nav-btn').length);
 }
 
@@ -328,7 +245,7 @@ function initCake() {
         // Remove any previous listeners to avoid duplication
         const newBtn = blowBtn.cloneNode(true);
         blowBtn.parentNode.replaceChild(newBtn, blowBtn);
-        
+
         // Add click listener to cloned button
         newBtn.addEventListener('click', function (e) {
             e.preventDefault();
@@ -336,7 +253,7 @@ function initCake() {
             console.log('Blow button clicked via listener');
             blowCandlesNew();
         });
-        
+
         // Also handle pointer down for immediate feedback
         newBtn.addEventListener('pointerdown', function (e) {
             e.preventDefault();
@@ -352,7 +269,7 @@ function initCake() {
             console.log('Candle clicked:', index + 1);
             blowSingleCandle(index);
         });
-        
+
         flame.addEventListener('pointerdown', function (e) {
             e.preventDefault();
         });
@@ -375,21 +292,21 @@ let candlesBlowCount = 0;
 // Blow individual candle with animation
 function blowSingleCandle(index) {
     if (candlesBlownNew) return;
-    
+
     const flames = document.querySelectorAll('.flame');
     const flame = flames[index];
-    
+
     if (flame && !flame.classList.contains('blown')) {
         flame.classList.add('blown');
         candlesBlowCount++;
-        
+
         // Sound effect
         try {
             SoundManager.playPoof();
         } catch (e) {
             console.log('Sound error (ignored):', e);
         }
-        
+
         // If all candles blown, trigger success
         if (candlesBlowCount === flames.length) {
             setTimeout(() => {

@@ -6844,3 +6844,20 @@ body {
         padding: 20px;
     }
 }
+/* Typewriter Replacement Animation */
+.message-greeting, .message-text, .message-sign {
+    opacity: 0;
+    animation: fadeInText 1.5s ease-out forwards;
+}
+
+.message-greeting { animation-delay: 0.2s; }
+.message-text:nth-child(3) { animation-delay: 1.5s; }
+.message-text:nth-child(4) { animation-delay: 3.0s; }
+.message-text:nth-child(5) { animation-delay: 4.5s; }
+.message-text:nth-child(6) { animation-delay: 6.0s; }
+.message-sign { animation-delay: 7.5s; }
+
+@keyframes fadeInText {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
