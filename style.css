@@ -6208,18 +6208,23 @@ body {
 }
 
 @keyframes floatAround {
-    0%, 100% {
+
+    0%,
+    100% {
         transform: translate(0, 0) rotate(0deg) scale(1);
         opacity: 0.7;
     }
+
     25% {
         transform: translate(20px, -15px) rotate(90deg) scale(1.1);
         opacity: 1;
     }
+
     50% {
         transform: translate(-10px, -30px) rotate(180deg) scale(0.95);
         opacity: 0.8;
     }
+
     75% {
         transform: translate(15px, -10px) rotate(270deg) scale(1.05);
         opacity: 1;
@@ -6235,21 +6240,24 @@ body {
     gap: 0;
     transform-style: preserve-3d;
     animation: cakeFloat 4s cubic-bezier(0.42, 0, 0.58, 1) infinite;
-    filter: drop-shadow(0 25px 60px rgba(0, 0, 0, 0.3)) 
-            drop-shadow(0 0 50px rgba(255, 182, 193, 0.5))
-            drop-shadow(0 0 30px rgba(168, 216, 234, 0.3));
+    filter: drop-shadow(0 25px 60px rgba(0, 0, 0, 0.3)) drop-shadow(0 0 50px rgba(255, 182, 193, 0.5)) drop-shadow(0 0 30px rgba(168, 216, 234, 0.3));
 }
 
 @keyframes cakeFloat {
-    0%, 100% {
+
+    0%,
+    100% {
         transform: translateY(0) rotateX(0deg) rotateZ(0deg) scale(1);
     }
+
     25% {
         transform: translateY(-20px) rotateX(3deg) rotateZ(-2deg) scale(1.02);
     }
+
     50% {
         transform: translateY(-30px) rotateX(5deg) rotateZ(0deg) scale(1.04);
     }
+
     75% {
         transform: translateY(-20px) rotateX(3deg) rotateZ(2deg) scale(1.02);
     }
@@ -6257,9 +6265,7 @@ body {
 
 .cake-3d-structure:hover {
     animation-play-state: paused;
-    filter: drop-shadow(0 30px 80px rgba(0, 0, 0, 0.4)) 
-            drop-shadow(0 0 70px rgba(255, 182, 193, 0.7))
-            drop-shadow(0 0 50px rgba(168, 216, 234, 0.5));
+    filter: drop-shadow(0 30px 80px rgba(0, 0, 0, 0.4)) drop-shadow(0 0 70px rgba(255, 182, 193, 0.7)) drop-shadow(0 0 50px rgba(168, 216, 234, 0.5));
 }
 
 /* Candles Container with Enhanced Styling */
@@ -6304,7 +6310,7 @@ body {
 
 .flame {
     font-size: 2.5rem;
-    animation: 
+    animation:
         flameBounce 0.6s ease-in-out infinite,
         flameGlow 1s ease-in-out infinite;
     filter: drop-shadow(0 0 15px #ff6b35) drop-shadow(0 0 25px #ff4500);
@@ -6323,18 +6329,24 @@ body {
 }
 
 @keyframes flameBounce {
-    0%, 100% {
+
+    0%,
+    100% {
         transform: translateY(0) scaleY(1);
     }
+
     50% {
         transform: translateY(-5px) scaleY(1.1);
     }
 }
 
 @keyframes flameGlow {
-    0%, 100% {
+
+    0%,
+    100% {
         filter: drop-shadow(0 0 15px #ff6b35) drop-shadow(0 0 25px #ff4500) brightness(1);
     }
+
     50% {
         filter: drop-shadow(0 0 25px #ff6b35) drop-shadow(0 0 40px #ff4500) brightness(1.3);
     }
@@ -6346,11 +6358,13 @@ body {
         transform: translateY(0) scale(1);
         filter: drop-shadow(0 0 20px #ff6b35) drop-shadow(0 0 35px #ff4500);
     }
+
     50% {
         opacity: 0.3;
         transform: translateY(-30px) translateX(15px) scale(0.5) rotateZ(45deg);
         filter: drop-shadow(0 0 10px #ff6b35);
     }
+
     100% {
         opacity: 0;
         transform: translateY(-60px) translateX(40px) scale(0) rotateZ(90deg);
@@ -6367,9 +6381,12 @@ body {
 }
 
 @keyframes candleWave {
-    0%, 100% {
+
+    0%,
+    100% {
         transform: scaleY(1);
     }
+
     50% {
         transform: scaleY(1.05) scaleX(0.95);
     }
@@ -6405,7 +6422,7 @@ body {
     height: 80px;
     background: linear-gradient(135deg, #fff4e6 0%, #ffe8cc 20%, #ffd700 60%, #ffcc00 100%);
     border-radius: 20px 20px 25px 25px;
-    box-shadow: 
+    box-shadow:
         inset 0 8px 20px rgba(255, 255, 255, 0.6),
         inset 0 -5px 15px rgba(0, 0, 0, 0.1),
         0 15px 40px rgba(255, 215, 0, 0.4),
@@ -6434,7 +6451,7 @@ body {
     left: 15%;
     width: 70%;
     height: 20px;
-    background: 
+    background:
         radial-gradient(ellipse 15px 18px at 15% 0%, rgba(255, 255, 255, 0.9) 70%, transparent),
         radial-gradient(ellipse 12px 14px at 35% 0%, rgba(255, 255, 255, 0.9) 70%, transparent),
         radial-gradient(ellipse 14px 16px at 55% 0%, rgba(255, 255, 255, 0.9) 70%, transparent),
@@ -6449,7 +6466,7 @@ body {
     height: 70px;
     background: linear-gradient(135deg, #e6f2ff 0%, #d1e8ff 20%, #a8d8ea 60%, #89cff0 100%);
     border-radius: 18px 18px 20px 20px;
-    box-shadow: 
+    box-shadow:
         inset 0 8px 20px rgba(255, 255, 255, 0.6),
         inset 0 -5px 15px rgba(0, 0, 0, 0.08),
         0 15px 40px rgba(168, 216, 234, 0.4),
@@ -6478,7 +6495,7 @@ body {
     left: 10%;
     width: 80%;
     height: 18px;
-    background: 
+    background:
         radial-gradient(ellipse 12px 16px at 12% 0%, rgba(255, 255, 255, 0.9) 70%, transparent),
         radial-gradient(ellipse 14px 17px at 30% 0%, rgba(255, 255, 255, 0.9) 70%, transparent),
         radial-gradient(ellipse 11px 14px at 48% 0%, rgba(255, 255, 255, 0.9) 70%, transparent),
@@ -6493,7 +6510,7 @@ body {
     height: 60px;
     background: linear-gradient(135deg, #ffe6ed 0%, #ffd1dc 20%, #ffb6c1 60%, #ff91a4 100%);
     border-radius: 18px 18px 18px 18px;
-    box-shadow: 
+    box-shadow:
         inset 0 8px 20px rgba(255, 255, 255, 0.6),
         inset 0 -5px 15px rgba(0, 0, 0, 0.08),
         0 15px 40px rgba(255, 145, 164, 0.4),
@@ -6537,18 +6554,24 @@ body {
 }
 
 @keyframes frostingBounce {
-    0%, 100% {
+
+    0%,
+    100% {
         transform: translateY(0) scale(1);
     }
+
     50% {
         transform: translateY(-3px) scale(1.05);
     }
 }
 
 @keyframes creamWobble {
-    0%, 100% {
+
+    0%,
+    100% {
         transform: scaleY(1) translateX(0);
     }
+
     50% {
         transform: scaleY(1.1) translateX(2px);
     }
@@ -6567,10 +6590,13 @@ body {
     0% {
         transform: rotateZ(0deg);
     }
+
     100% {
         transform: rotateZ(360deg);
     }
-};
+}
+
+;
 }
 
 .blow-candles-btn {
@@ -6614,6 +6640,7 @@ body {
     0% {
         transform: translateX(-100%);
     }
+
     100% {
         transform: translateX(100%);
     }
@@ -6641,23 +6668,29 @@ body {
 }
 
 @keyframes windBlow {
-    0%, 100% {
+
+    0%,
+    100% {
         transform: translateX(0) scale(1);
     }
+
     50% {
         transform: translateX(8px) scale(1.2);
     }
 }
 
 @keyframes btnMegaPulse {
-    0%, 100% {
-        box-shadow: 
+
+    0%,
+    100% {
+        box-shadow:
             0 8px 35px rgba(255, 107, 157, 0.6),
             0 0 30px rgba(255, 182, 193, 0.4),
             inset 0 2px 8px rgba(255, 255, 255, 0.3);
     }
+
     50% {
-        box-shadow: 
+        box-shadow:
             0 12px 50px rgba(255, 107, 157, 0.8),
             0 0 50px rgba(255, 182, 193, 0.6),
             inset 0 2px 12px rgba(255, 255, 255, 0.4);
@@ -6672,7 +6705,7 @@ body {
     font-weight: 700;
     letter-spacing: 0.5px;
 }
-    }
+}
 }
 
 .blow-icon {
@@ -6844,22 +6877,49 @@ body {
         padding: 20px;
     }
 }
+
 /* Typewriter Replacement Animation */
-.message-greeting, .message-text, .message-sign {
+.message-greeting,
+.message-text,
+.message-sign {
     opacity: 0;
     animation: fadeInText 1.5s ease-out forwards;
 }
 
-.message-greeting { animation-delay: 0.2s; }
-.message-text:nth-child(3) { animation-delay: 1.5s; }
-.message-text:nth-child(4) { animation-delay: 3.0s; }
-.message-text:nth-child(5) { animation-delay: 4.5s; }
-.message-text:nth-child(6) { animation-delay: 6.0s; }
-.message-sign { animation-delay: 7.5s; }
+.message-greeting {
+    animation-delay: 0.2s;
+}
+
+.message-text:nth-child(3) {
+    animation-delay: 1.5s;
+}
+
+.message-text:nth-child(4) {
+    animation-delay: 3.0s;
+}
+
+.message-text:nth-child(5) {
+    animation-delay: 4.5s;
+}
+
+.message-text:nth-child(6) {
+    animation-delay: 6.0s;
+}
+
+.message-sign {
+    animation-delay: 7.5s;
+}
 
 @keyframes fadeInText {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* ===== Celestial Letter Design (Pro Max) ===== */
@@ -6880,7 +6940,7 @@ body {
     border-radius: 20px;
     padding: 40px 30px;
     position: relative;
-    box-shadow: 
+    box-shadow:
         0 15px 35px rgba(0, 0, 0, 0.1),
         0 5px 15px rgba(0, 0, 0, 0.05),
         inset 0 0 20px rgba(255, 255, 255, 0.2);
@@ -6891,7 +6951,7 @@ body {
 
 .celestial-letter-container:hover {
     transform: translateY(-5px) scale(1.01);
-    box-shadow: 
+    box-shadow:
         0 20px 40px rgba(168, 216, 234, 0.2),
         0 10px 20px rgba(255, 182, 193, 0.2),
         inset 0 0 30px rgba(255, 255, 255, 0.3);
@@ -6911,7 +6971,7 @@ body {
     align-items: center;
     justify-content: center;
     font-size: 1.8rem;
-    box-shadow: 
+    box-shadow:
         0 5px 15px rgba(255, 107, 107, 0.3),
         inset 0 -2px 5px rgba(0, 0, 0, 0.1);
     border: 2px solid rgba(255, 255, 255, 0.6);
@@ -6926,6 +6986,34 @@ body {
     border-radius: 50%;
     border: 2px dashed rgba(255, 255, 255, 0.5);
     animation: spinSlow 10s linear infinite;
+}
+
+/* Riddle Content */
+.riddle-text {
+    margin-bottom: 2rem;
+    color: #000000;
+    /* Force black for visibility */
+}
+
+.riddle-line {
+    font-size: 1.2rem;
+    color: #000000;
+    /* Force black for visibility */
+    margin-bottom: 0.5rem;
+    font-style: italic;
+    opacity: 0.9;
+}
+
+.riddle-question {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #000000;
+    /* Force black for visibility */
+    margin-top: 1rem;
+    background: linear-gradient(45deg, #000000, #333333);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: none;
 }
 
 /* Letter Content */
@@ -6955,13 +7043,35 @@ body {
     animation: fadeInUp 0.8s ease-out forwards;
 }
 
-.stanza-1 { animation-delay: 0.3s; }
-.stanza-2 { animation-delay: 1.5s; }
-.stanza-3 { animation-delay: 2.7s; }
+.stanza-1 {
+    animation-delay: 0.3s;
+}
 
-.highlight-gold { color: #d4af37; font-weight: 700; text-shadow: 0 0 5px rgba(212, 175, 55, 0.3); }
-.highlight-pink { color: #ff69b4; font-weight: 700; text-shadow: 0 0 5px rgba(255, 105, 180, 0.3); }
-.highlight-blue { color: #4facfe; font-weight: 700; text-shadow: 0 0 5px rgba(79, 172, 254, 0.3); }
+.stanza-2 {
+    animation-delay: 1.5s;
+}
+
+.stanza-3 {
+    animation-delay: 2.7s;
+}
+
+.highlight-gold {
+    color: #d4af37;
+    font-weight: 700;
+    text-shadow: 0 0 5px rgba(212, 175, 55, 0.3);
+}
+
+.highlight-pink {
+    color: #ff69b4;
+    font-weight: 700;
+    text-shadow: 0 0 5px rgba(255, 105, 180, 0.3);
+}
+
+.highlight-blue {
+    color: #4facfe;
+    font-weight: 700;
+    text-shadow: 0 0 5px rgba(79, 172, 254, 0.3);
+}
 
 .letter-signature {
     margin-top: 30px;
@@ -6990,26 +7100,76 @@ body {
     animation: charmFloat 4s ease-in-out infinite;
 }
 
-.charm-TL { top: -20px; left: -20px; animation-delay: 0s; }
-.charm-TR { top: -15px; right: -25px; animation-delay: 1s; }
-.charm-BL { bottom: -20px; left: -10px; animation-delay: 2s; }
-.charm-BR { bottom: -15px; right: -20px; animation-delay: 0.5s; }
-.charm-float-1 { top: 40%; left: -40px; animation-delay: 1.5s; font-size: 1.2rem; }
-.charm-float-2 { top: 60%; right: -35px; animation-delay: 2.5s; font-size: 1.2rem; }
+.charm-TL {
+    top: -20px;
+    left: -20px;
+    animation-delay: 0s;
+}
+
+.charm-TR {
+    top: -15px;
+    right: -25px;
+    animation-delay: 1s;
+}
+
+.charm-BL {
+    bottom: -20px;
+    left: -10px;
+    animation-delay: 2s;
+}
+
+.charm-BR {
+    bottom: -15px;
+    right: -20px;
+    animation-delay: 0.5s;
+}
+
+.charm-float-1 {
+    top: 40%;
+    left: -40px;
+    animation-delay: 1.5s;
+    font-size: 1.2rem;
+}
+
+.charm-float-2 {
+    top: 60%;
+    right: -35px;
+    animation-delay: 2.5s;
+    font-size: 1.2rem;
+}
 
 @keyframes charmFloat {
-    0%, 100% { transform: translateY(0) rotate(0deg); }
-    50% { transform: translateY(-15px) rotate(10deg); }
+
+    0%,
+    100% {
+        transform: translateY(0) rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(-15px) rotate(10deg);
+    }
 }
 
 @keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 @keyframes spinSlow {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
 }
 
 /* Gradient Text Premium */
@@ -7024,7 +7184,8 @@ body {
 /* Fix for button clickability */
 .nav-btn {
     position: relative;
-    z-index: 1001; /* Ensure above everything */
+    z-index: 1001;
+    /* Ensure above everything */
     cursor: pointer;
     pointer-events: auto !important;
 }
@@ -7041,9 +7202,20 @@ body {
     animation: iconFloat 3s ease-in-out infinite;
 }
 
-.icon-frost { stroke: #a8d8ea; filter: drop-shadow(0 0 10px rgba(168, 216, 234, 0.6)); }
-.icon-mirror { stroke: #ffd1dc; filter: drop-shadow(0 0 10px rgba(255, 209, 220, 0.6)); }
-.icon-orb { stroke: #aa9cff; filter: drop-shadow(0 0 10px rgba(170, 156, 255, 0.6)); }
+.icon-frost {
+    stroke: #a8d8ea;
+    filter: drop-shadow(0 0 10px rgba(168, 216, 234, 0.6));
+}
+
+.icon-mirror {
+    stroke: #ffd1dc;
+    filter: drop-shadow(0 0 10px rgba(255, 209, 220, 0.6));
+}
+
+.icon-orb {
+    stroke: #aa9cff;
+    filter: drop-shadow(0 0 10px rgba(170, 156, 255, 0.6));
+}
 
 
 /* ===== Music Toggle Button ===== */
@@ -7083,8 +7255,15 @@ body {
 }
 
 @keyframes pulseMusic {
-    0% { box-shadow: 0 0 0 0 rgba(255, 182, 193, 0.7); }
-    70% { box-shadow: 0 0 0 10px rgba(255, 182, 193, 0); }
-    100% { box-shadow: 0 0 0 0 rgba(255, 182, 193, 0); }
-}
+    0% {
+        box-shadow: 0 0 0 0 rgba(255, 182, 193, 0.7);
+    }
 
+    70% {
+        box-shadow: 0 0 0 10px rgba(255, 182, 193, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(255, 182, 193, 0);
+    }
+}

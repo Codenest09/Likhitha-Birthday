@@ -25,54 +25,14 @@ const SoundManager = {
 
     // Play a cute "ding" sound for button clicks
     playDing() {
-        if (!this.enabled) return;
-        const ctx = this.init();
-        if (ctx.state === 'suspended') ctx.resume();
-
-        const osc = ctx.createOscillator();
-        const gain = ctx.createGain();
-
-        osc.connect(gain);
-        gain.connect(ctx.destination);
-
-        osc.frequency.setValueAtTime(880, ctx.currentTime); // A5
-        osc.frequency.exponentialRampToValueAtTime(1320, ctx.currentTime + 0.1); // E6
-        osc.type = 'sine';
-
-        gain.gain.setValueAtTime(0.3, ctx.currentTime);
-        gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.3);
-
-        osc.start(ctx.currentTime);
-        osc.stop(ctx.currentTime + 0.3);
+        // Disabled per user request
+        return;
     },
 
     // Play magical whoosh for page transitions
     playWhoosh() {
-        if (!this.enabled) return;
-        const ctx = this.init();
-        if (ctx.state === 'suspended') ctx.resume();
-
-        const osc = ctx.createOscillator();
-        const gain = ctx.createGain();
-        const filter = ctx.createBiquadFilter();
-
-        osc.connect(filter);
-        filter.connect(gain);
-        gain.connect(ctx.destination);
-
-        filter.type = 'lowpass';
-        filter.frequency.setValueAtTime(1000, ctx.currentTime);
-        filter.frequency.exponentialRampToValueAtTime(200, ctx.currentTime + 0.4);
-
-        osc.type = 'sawtooth';
-        osc.frequency.setValueAtTime(150, ctx.currentTime);
-        osc.frequency.exponentialRampToValueAtTime(50, ctx.currentTime + 0.4);
-
-        gain.gain.setValueAtTime(0.15, ctx.currentTime);
-        gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.4);
-
-        osc.start(ctx.currentTime);
-        osc.stop(ctx.currentTime + 0.4);
+        // Disabled per user request
+        return;
     },
 
     // Play sparkle/twinkle sound for celebrations
