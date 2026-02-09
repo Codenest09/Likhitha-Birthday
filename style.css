@@ -5246,6 +5246,26 @@ body {
     margin: 0 auto;
 }
 
+.blow-candles-btn {
+    margin-top: 30px;
+    background: white;
+    padding: 15px 40px;
+    border-radius: 50px;
+    border: none;
+    font-size: 1.2rem;
+    color: #ff6b6b;
+    box-shadow: 0 10px 30px rgba(255, 107, 107, 0.3);
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    z-index: 100;
+    /* Ensure button is clickable */
+}
+
 .unlock-btn:hover {
     transform: translateY(-3px);
     box-shadow: 0 8px 25px rgba(255, 215, 0, 0.6);
@@ -5594,7 +5614,8 @@ body {
     .nav-buttons {
         gap: 8px;
         margin-top: 15px;
-        padding-bottom: 20px;
+        padding-bottom: 50px;
+        /* Increased to lift buttons up */
     }
 
     .nav-btn {

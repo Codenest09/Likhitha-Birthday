@@ -139,9 +139,9 @@ document.addEventListener('DOMContentLoaded', () => {
     initKeyboardNav();
     initTouchSwipe();
     initMemoryCarousel();
+    initCake(); // Initialize cake interactions
     // TypewriterEffect removed
     initCountdown();
-    initCake();
     initAllButtons();  // Initialize all nav buttons first
     initMusic(); // Initialize background music
 });
