@@ -5612,23 +5612,10 @@ body {
     }
 
     .nav-buttons {
-        position: fixed;
-        bottom: 20px;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 90%;
-        max-width: 400px;
-        display: flex;
-        justify-content: space-between;
-        gap: 15px;
-        z-index: 1000;
-        padding: 10px 15px;
-        background: rgba(255, 255, 255, 0.2);
-        backdrop-filter: blur(10px);
-        border-radius: 50px;
-        border: 1px solid rgba(255, 255, 255, 0.4);
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        margin-top: 0;
+        gap: 8px;
+        margin-top: 15px;
+        padding-bottom: 50px;
+        /* Increased to lift buttons up */
     }
 
     .nav-btn {
