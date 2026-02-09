@@ -181,29 +181,28 @@ document.addEventListener('DOMContentLoaded', () => {
     initMemoryCarousel();
     // TypewriterEffect removed
     initCountdown();
-    initAllButtons();  // Initialize all nav buttons
     initCake();
+    initAllButtons();  // Initialize all nav buttons first
     initMusic(); // Initialize background music
 });
 
 // ===== Background Music Manager =====
 function initMusic() {
     const music = document.getElementById('bgMusic');
-    const startBtn = document.getElementById('startBtn');
 
     // Set initial volume
     music.volume = 0.5;
 
-    // Play music when "Open Your Surprise" is clicked
-    if (startBtn) {
-        startBtn.addEventListener('click', () => {
+    // Attach to document to catch the event even if button is cloned
+    document.addEventListener('click', function (e) {
+        if (e.target.closest('#startBtn')) {
             music.play().then(() => {
                 console.log('Music started successfully');
             }).catch(err => {
                 console.log('Music play failed:', err);
             });
-        });
-    }
+        }
+    });
 }
 
 // ===== Initialize All Button Event Listeners =====
