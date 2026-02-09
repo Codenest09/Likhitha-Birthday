@@ -168,11 +168,13 @@ function initMusic() {
     // 1. Primary Trigger: Direct Attachment
     if (startBtn) {
         startBtn.addEventListener('click', window.playBackgroundMusic);
+        startBtn.addEventListener('pointerdown', window.playBackgroundMusic); // Faster trigger
     }
 
     // 2. Global Fallback
     document.addEventListener('click', window.playBackgroundMusic);
     document.addEventListener('touchstart', window.playBackgroundMusic);
+    document.addEventListener('pointerdown', window.playBackgroundMusic);
 }
 
 // ===== Initialize All Button Event Listeners =====
