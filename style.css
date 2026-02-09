@@ -5607,15 +5607,63 @@ body {
         padding: 10px 0 25px 0;
     }
 
-    .page-content {
-        padding: 10px 10px 25px 10px;
+    /* Premium Floating Mobile Navbar */
+    .nav-buttons {
+        position: fixed;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 85%;
+        max-width: 350px;
+        padding: 12px 20px;
+        background: rgba(255, 255, 255, 0.3);
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
+        border-radius: 50px;
+        border: 1px solid rgba(255, 255, 255, 0.6);
+        box-shadow:
+            0 10px 30px rgba(0, 0, 0, 0.15),
+            inset 0 0 20px rgba(255, 255, 255, 0.2);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 15px;
+        z-index: 9999;
+        margin-top: 0;
+        animation: floatDock 3s ease-in-out infinite;
     }
 
-    .nav-buttons {
-        gap: 8px;
-        margin-top: 15px;
-        padding-bottom: 50px;
-        /* Increased to lift buttons up */
+    /* Animation for the dock to feel alive */
+    @keyframes floatDock {
+
+        0%,
+        100% {
+            transform: translateX(-50%) translateY(0);
+        }
+
+        50% {
+            transform: translateX(-50%) translateY(-5px);
+        }
+    }
+
+    /* CRITICAL: spacing to prevent overlap */
+    .page-content {
+        padding: 10px 10px 120px 10px !important;
+        /* Huge padding to clear the dock */
+        overflow-y: auto;
+        /* Ensure content scrolls */
+        height: 100%;
+        /* Fill container */
+    }
+
+    /* Ensure pages scroll properly */
+    .page {
+        height: 100dvh;
+        /* Dynamic viewport height */
+        overflow: hidden;
+        /* Container fixed, content scrolls */
+        display: flex;
+        flex-direction: column;
     }
 
     .nav-btn {
