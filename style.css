@@ -7029,3 +7029,19 @@ body {
     pointer-events: auto !important;
 }
 
+
+/* ===== Riddle Icons (SVG) ===== */
+.riddle-icon {
+    width: 60px;
+    height: 60px;
+    stroke: var(--pastel-pink);
+    stroke-width: 1.5;
+    fill: none;
+    filter: drop-shadow(0 0 10px rgba(255, 182, 193, 0.6));
+    animation: iconFloat 3s ease-in-out infinite;
+}
+
+.icon-frost { stroke: #a8d8ea; filter: drop-shadow(0 0 10px rgba(168, 216, 234, 0.6)); }
+.icon-mirror { stroke: #ffd1dc; filter: drop-shadow(0 0 10px rgba(255, 209, 220, 0.6)); }
+.icon-orb { stroke: #aa9cff; filter: drop-shadow(0 0 10px rgba(170, 156, 255, 0.6)); }
+
